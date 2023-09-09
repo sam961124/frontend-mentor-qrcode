@@ -9,6 +9,10 @@ const nextConfig = {
     output: 'export',
     assetPrefix: assetPrefix,
     basePath: basePath,
+    images: {
+      loader: 'imgix',
+      path: 'shangenlee-878868498.imgix.net',
+    },
 };
 
 export default nextConfig;
