@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import { Outfit } from 'next/font/google'
 
@@ -10,12 +12,16 @@ const outfitBold = Outfit({
   subsets: ['latin']
 })
 
+const imgixLoader = ({ src, width, quality }: any) => {
+  return `https://shangenlee-878868498.imgix.net/${src}`;
+};
+
 export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
       <div className="max-w-[18rem] rounded-xl flex flex-col items-center p-4 bg-white qrcode-container gap-4 text-center">
-        <Image className="rounded-lg" src="image-qr-code.png" alt="qrcode" width="500" height="500" />
+        <Image loader={imgixLoader} className="rounded-lg" src="image-qr-code.png" alt="qrcode" width="500" height="500" />
         <div className={outfitBold.className + " px-2 text-lg"} style={{ color: "hsl(218, 44%, 22%)"}}>
           Improve your front-end skills by building projects
         </div>
